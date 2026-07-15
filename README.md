@@ -1,7 +1,14 @@
-# CAPSU Student Portal
+<p align="center">
+  <img src="3dlogo_nbg.png" alt="CAPSU Student Portal Logo" width="150">
+</p>
 
-Official download page for the **CAPSU Student Portal** Android application.
+<h1 align="center">CAPSU Student Portal</h1>
 
+<p align="center">
+Official download page for the <strong>CAPSU Student Portal</strong> Android application.
+</p>
+
+##
 The CAPSU Student Portal provides students with convenient access to academic information and university services through a mobile application.
 
 ## Features
