@@ -14,7 +14,12 @@ html{scroll-behavior:smooth}
 ::-webkit-scrollbar {width: 0;}
 body{background:#f8f9fa;}
     .hero{min-height:100vh;display:flex;align-items:center}
-    .phone{max-width:30vh;border-radius:25px;}
+    .phone{
+    max-width:280px;
+    width:100%;
+    height:auto;
+    border-radius:25px;
+}
     .feature{border:none;border-radius:18px;transition:.2s}
     .feature:hover{transform:translateY(-5px)}
     .download-card{border:none;border-radius:20px}
@@ -65,7 +70,7 @@ body{background:#f8f9fa;}
             </div>
 
             <p class="mt-4 text-muted">
-                Version 1.0.6 • Android 8.0+
+                Version 1.0.9 • Android 15
             </p>
 
         </div>
@@ -210,9 +215,9 @@ body{background:#f8f9fa;}
 
 <p class="text-muted">Latest Stable Release</p>
 
-<h4>Version 1.0.6</h4>
+<h4>Version 1.0.9</h4>
 
-<p>Android 8.0 or later</p>
+<p>Android 15</p>
 
 <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
 
@@ -243,12 +248,13 @@ body{background:#f8f9fa;}
 <script>
 
 const appInfo = {
-    features: [
-        
-        "Can now change password",
-        "Add Splash screen",
-        "Added Quick tour for first time users",
-	"Update School Events"
+    features: [   
+        " Changes in Academic Information",
+        " Change Contact Information to Academic Information",
+        " Changes in schedule (From Hardcoded to API data provider)",
+        " Changes in Grades (From Hardcoded to API data provider)",
+        " Added Quick Access Modal",
+        " Fix Student ID and Number Display"
     ],
 
     bugFixes: [
