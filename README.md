@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="3dlogo_nbg.png" alt="CAPSU Student Portal Logo" width="150">
+  <img src="assets/3dlogo_nbg.png" alt="CAPSU Student Portal Logo" width="150">
 </p>
 
 <h1 align="center">CAPSU Student Portal</h1>
