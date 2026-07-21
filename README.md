@@ -9,6 +9,7 @@ Official download page for the <strong>CAPSU Student Portal</strong> Android app
 </p>
 
 ##
+<img src="assets/graphic feature.png">
 The CAPSU Student Portal provides students with convenient access to academic information and university services through a mobile application.
 
 ## Features
@@ -31,6 +32,8 @@ Visit the official download page:
 Download the latest Android application (.apk) directly from the website.
 
 ## Test App
+This application is an unsigned APK intended for manual and automated testing, verification, and validation purposes only.
+<br>
 
 [![Download APK](https://img.shields.io/badge/Download-APK-success?style=for-the-badge&logo=android)](https://capsu-dev.github.io/student_portal/capsu-iis-student-portalV1.1.2-beta001.apk)
 
