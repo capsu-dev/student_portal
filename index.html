@@ -395,72 +395,186 @@ body{background:#f8f9fa;}
 
     <h2 class="fw-bold text-center mb-5">Screenshots</h2>
 
-        <!-- Desktop -->
-        <div class="row g-4 d-none d-md-flex">
-
-            <div class="col-md-3">
-                <img src="./assets/5.png" class="img-fluid rounded">
-            </div>
-
-            <div class="col-md-3">
-                <img src="./assets/6.png" class="img-fluid rounded">
-            </div>
-
-            <div class="col-md-3">
-                <img src="./assets/7.png" class="img-fluid rounded">
-            </div>
-
-            <div class="col-md-3">
-                <img src="./assets/8.png" class="img-fluid rounded">
-            </div>
-
-        </div>
-
-        <!-- Mobile -->
-        <div id="screenshotsCarousel" class="carousel slide d-md-none" data-bs-touch="true">
+        <!-- Mobile Carousel (1 image per slide) -->
+        <div id="screenshotsCarouselMobile" class="carousel slide d-md-none" data-bs-touch="true">
 
             <div class="carousel-inner">
 
                 <div class="carousel-item active text-center">
-                    <img src="./assets/5.png" class="img-fluid rounded w-75">
+                    <img src="./snapshots/1.png" class="img-fluid rounded w-75">
                 </div>
 
                 <div class="carousel-item text-center">
-                    <img src="./assets/6.png" class="img-fluid rounded w-75">
+                    <img src="./snapshots/2.png" class="img-fluid rounded w-75">
                 </div>
 
                 <div class="carousel-item text-center">
-                    <img src="./assets/7.png" class="img-fluid rounded w-75">
+                    <img src="./snapshots/3.png" class="img-fluid rounded w-75">
                 </div>
 
                 <div class="carousel-item text-center">
-                    <img src="./assets/8.png" class="img-fluid rounded w-75">
+                    <img src="./snapshots/4.png" class="img-fluid rounded w-75">
+                </div>
+
+                <div class="carousel-item text-center">
+                    <img src="./snapshots/5.png" class="img-fluid rounded w-75">
+                </div>
+
+                <div class="carousel-item text-center">
+                    <img src="./snapshots/6.png" class="img-fluid rounded w-75">
+                </div>
+
+                <div class="carousel-item text-center">
+                    <img src="./snapshots/7.png" class="img-fluid rounded w-75">
+                </div>
+
+                <div class="carousel-item text-center">
+                    <img src="./snapshots/8.png" class="img-fluid rounded w-75">
+                </div>
+
+                <div class="carousel-item text-center">
+                    <img src="./snapshots/9.png" class="img-fluid rounded w-75">
+                </div>
+
+                <div class="carousel-item text-center">
+                    <img src="./snapshots/10.png" class="img-fluid rounded w-75">
+                </div>
+
+                <div class="carousel-item text-center">
+                    <img src="./snapshots/11.png" class="img-fluid rounded w-75">
+                </div>
+
+                <div class="carousel-item text-center">
+                    <img src="./snapshots/12.png" class="img-fluid rounded w-75">
                 </div>
 
             </div>
 
-            <button class="carousel-control-prev" type="button" data-bs-target="#screenshotsCarousel" data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#screenshotsCarouselMobile" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
             </button>
 
-            <button class="carousel-control-next" type="button" data-bs-target="#screenshotsCarousel" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#screenshotsCarouselMobile" data-bs-slide="next">
                 <span class="carousel-control-next-icon"></span>
             </button>
 
             <div class="carousel-indicators position-relative mt-3">
-                <button type="button" data-bs-target="#screenshotsCarousel" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#screenshotsCarousel" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#screenshotsCarousel" data-bs-slide-to="2"></button>
-                <button type="button" data-bs-target="#screenshotsCarousel" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#screenshotsCarouselMobile" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#screenshotsCarouselMobile" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#screenshotsCarouselMobile" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#screenshotsCarouselMobile" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#screenshotsCarouselMobile" data-bs-slide-to="4"></button>
+                <button type="button" data-bs-target="#screenshotsCarouselMobile" data-bs-slide-to="5"></button>
+                <button type="button" data-bs-target="#screenshotsCarouselMobile" data-bs-slide-to="6"></button>
+                <button type="button" data-bs-target="#screenshotsCarouselMobile" data-bs-slide-to="7"></button>
+                <button type="button" data-bs-target="#screenshotsCarouselMobile" data-bs-slide-to="8"></button>
+                <button type="button" data-bs-target="#screenshotsCarouselMobile" data-bs-slide-to="9"></button>
+                <button type="button" data-bs-target="#screenshotsCarouselMobile" data-bs-slide-to="10"></button>
+                <button type="button" data-bs-target="#screenshotsCarouselMobile" data-bs-slide-to="11"></button>
             </div>
 
         </div>
 
-    <section class="py-5">
+        <!-- Desktop Carousel (Multiple images per slide) -->
+        <div id="screenshotsCarouselDesktop" class="carousel slide d-none d-md-block" data-bs-touch="true">
+
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-3 col-md-4 text-center">
+                            <img src="./snapshots/1.png" class="img-fluid rounded">
+                        </div>
+                        <div class="col-lg-3 col-md-4 text-center">
+                            <img src="./snapshots/2.png" class="img-fluid rounded">
+                        </div>
+                        <div class="col-lg-3 col-md-4 text-center">
+                            <img src="./snapshots/3.png" class="img-fluid rounded">
+                        </div>
+                        <div class="col-lg-3 col-md-4 text-center">
+                            <img src="./snapshots/4.png" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-3 col-md-4 text-center">
+                            <img src="./snapshots/5.png" class="img-fluid rounded">
+                        </div>
+                        <div class="col-lg-3 col-md-4 text-center">
+                            <img src="./snapshots/6.png" class="img-fluid rounded">
+                        </div>
+                        <div class="col-lg-3 col-md-4 text-center">
+                            <img src="./snapshots/7.png" class="img-fluid rounded">
+                        </div>
+                        <div class="col-lg-3 col-md-4 text-center">
+                            <img src="./snapshots/8.png" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-3 col-md-4 text-center">
+                            <img src="./snapshots/9.png" class="img-fluid rounded">
+                        </div>
+                        <div class="col-lg-3 col-md-4 text-center">
+                            <img src="./snapshots/10.png" class="img-fluid rounded">
+                        </div>
+                        <div class="col-lg-3 col-md-4 text-center">
+                            <img src="./snapshots/11.png" class="img-fluid rounded">
+                        </div>
+                        <div class="col-lg-3 col-md-4 text-center">
+                            <img src="./snapshots/12.png" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#screenshotsCarouselDesktop" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#screenshotsCarouselDesktop" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+
+            <div class="carousel-indicators position-relative mt-3">
+                <button type="button" data-bs-target="#screenshotsCarouselDesktop" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#screenshotsCarouselDesktop" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#screenshotsCarouselDesktop" data-bs-slide-to="2"></button>
+            </div>
+
+        </div>
+
+    <section class="py-5 bg-light">
         <div class="container">
             <h2 class="fw-bold text-center mb-5">
-                What's New
+                Demo Video
             </h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="ratio ratio-16x9 rounded overflow-hidden shadow-sm">
+                        <iframe 
+                            src="https://www.youtube.com/embed/IzWFd1C7qEQ" 
+                            title="CAPSU Student Portal Demo"
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+           <h2 class="fw-bold text-center mb-5">
+               What's New
+           </h2>
             <div class="row g-4">
                 <div class="col-lg-6">
                     <div class="card shadow-sm border-0 rounded-4 h-100">
