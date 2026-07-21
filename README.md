@@ -30,6 +30,10 @@ Visit the official download page:
 
 Download the latest Android application (.apk) directly from the website.
 
+## Test App
+
+[![Download APK](https://img.shields.io/badge/Download-APK-success?style=for-the-badge&logo=android)](https://capsu-dev.github.io/student_portal/capsu-iis-student-portalV1.1.2-beta001.apk)
+
 ## Requirements
 
 - Android 8.0 (Oreo) or later
