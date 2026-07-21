@@ -35,7 +35,7 @@ Download the latest Android application (.apk) directly from the website.
 This application is an unsigned APK intended for manual and automated testing, verification, and validation purposes only.
 <br>
 
-[![Download APK](https://img.shields.io/badge/Download-APK-success?style=for-the-badge&logo=android)](https://capsu-dev.github.io/student_portal/capsu-iis-student-portalV1.1.2-beta001.apk)
+[![Download APK](https://img.shields.io/badge/Download-APK-success?style=for-the-badge&logo=android)](https://capsu-dev.github.io/student_portal/docs/capsu-iis-student-portalV1.1.2-beta001.apk)
 
 ## Requirements
 
