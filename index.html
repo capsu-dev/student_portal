@@ -1,91 +1,137 @@
 <!DOCTYPE html>
+
 <html lang="en" data-bs-theme="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>REALEM Doors | Custom Wooden Door Mobile App</title>
+
+  <title>CAPSU - Student Portal</title>
 
   <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
   <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    rel="stylesheet"
+  >
 
   <style>
-    /* Custom brand accent colors inspired by RNP Trading */
     :root {
-      --brand-wood: #784d38;
-      --brand-wood-hover: #613c2b;
-      --brand-wood-light: rgba(120, 77, 56, 0.15);
+      --brand-wood: #00843D;
+      --brand-wood-hover: #006B31;
+      --brand-wood-light: rgba(0, 132, 61, 0.15);
+
       --bg-dark-base: #0b0b0c;
       --bg-card-dark: #141416;
       --border-dark: #26262a;
+
+      --text-main: #e4e4e7;
+      --text-heading: #ffffff;
+
+      --surface-dark: #0f0f10;
+      --navbar-bg: rgba(11, 11, 12, 0.85);
+      --spec-bg: rgba(20, 20, 22, 0.4);
+    }
+
+    /* LIGHT MODE */
+    [data-bs-theme="light"] {
+      --bg-dark-base: #f8f9fa;
+      --bg-card-dark: #ffffff;
+      --border-dark: #dee2e6;
+
+      --text-main: #212529;
+      --text-heading: #212529;
+
+      --surface-dark: #f1f3f5;
+      --navbar-bg: rgba(255, 255, 255, 0.88);
+      --spec-bg: rgba(248, 249, 250, 0.8);
     }
 
     body {
       background-color: var(--bg-dark-base);
-      color: #e4e4e7;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text-main);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+      transition: background-color 0.2s ease, color 0.2s ease;
     }
 
+    /* Make Bootstrap text-white work in light mode */
+    [data-bs-theme="light"] .text-white {
+      color: #212529 !important;
+    }
+
+    /* Brand Button */
     .btn-brand {
       background-color: var(--brand-wood);
       color: #ffffff;
       border: 1px solid var(--brand-wood);
     }
+
     .btn-brand:hover {
       background-color: var(--brand-wood-hover);
       color: #ffffff;
       border-color: var(--brand-wood-hover);
     }
 
-    .btn-facebook {
-      background-color: #1877f2;
-      color: #ffffff;
-      border: 1px solid #1877f2;
-    }
-    .btn-facebook:hover {
-      background-color: #1565c0;
-      color: #ffffff;
-      border-color: #1565c0;
-    }
-
+    /* Brand Badge */
     .badge-brand {
       background-color: var(--brand-wood-light);
-      color: #d19a7e;
-      border: 1px solid rgba(120, 77, 56, 0.3);
+      color: #00843D;
+      border: 1px solid rgba(0, 132, 61, 0.3);
     }
 
+    [data-bs-theme="dark"] .badge-brand {
+      color: #4caf75;
+    }
+
+    /* Cards */
     .card-dark {
       background-color: var(--bg-card-dark);
       border: 1px solid var(--border-dark);
       border-radius: 1rem;
+      transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
     }
 
+    /* Icon Box */
     .icon-box {
       height: 44px;
       width: 44px;
+      min-width: 44px;
       border-radius: 10px;
       background-color: var(--brand-wood-light);
-      color: #d19a7e;
+      color: #00843D;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(120, 77, 56, 0.3);
+      border: 1px solid rgba(0, 132, 61, 0.3);
     }
 
-    /* Mobile mockup styling */
+    [data-bs-theme="dark"] .icon-box {
+      color: #4caf75;
+    }
+
+    /* Mobile Mockup */
     .phone-mockup {
       width: 280px;
       height: 560px;
       background-color: #000;
       border: 4px solid #26262a;
       border-radius: 40px;
-      box-shadow: 0 0 40px rgba(120, 77, 56, 0.15);
+      box-shadow: 0 0 40px rgba(0, 132, 61, 0.15);
       position: relative;
       margin: 0 auto;
       padding: 12px;
     }
+
     .phone-notch {
       width: 90px;
       height: 16px;
@@ -97,8 +143,9 @@
       transform: translateX(-50%);
       z-index: 10;
     }
+
     .phone-screen {
-      background-color: #0f0f10;
+      background-color: var(--surface-dark);
       height: 100%;
       border-radius: 30px;
       border: 1px solid var(--border-dark);
@@ -107,308 +154,1296 @@
       justify-content: space-between;
       padding: 40px 16px 16px 16px;
     }
+
+    /* Theme Button */
+    .theme-toggle {
+      min-width: 125px;
+    }
+   
+    /* Smooth Theme Transition */
+    .navbar,
+    .modal-content,
+    .modal-header,
+    .modal-footer,
+    .border-bottom,
+    .border-top {
+      transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    /* Specification Preview */
+    .spec-preview {
+      background-color: var(--surface-dark);
+    }
+
+    /* Light Mode Fixes */
+    [data-bs-theme="light"] .btn-outline-light {
+      color: #212529;
+      border-color: #adb5bd;
+    }
+
+    [data-bs-theme="light"] .btn-outline-light:hover {
+      background-color: #212529;
+      color: #fff;
+    }
+
+    [data-bs-theme="light"] .text-secondary {
+      color: #6c757d !important;
+    }
+
+    [data-bs-theme="light"] .btn-close-white {
+      filter: none;
+    }
+
+    @media (max-width: 768px){
+    .phone{
+        max-width: 12rem;
+        }
+    }
+        .feature{border:none;border-radius:18px;transition:.2s}
+        .feature:hover{transform:translateY(-5px)}
+        .download-card{border:none;border-radius:20px}
+        footer{background:#198754;color:#fff}
+
+        html, body{
+        overflow-x:hidden;
+        width:100%;
+    }
+
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon{
+        filter: brightness(0) invert(1);
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next{
+        width: 2.75rem;
+        height: 2.75rem;
+        background-color: #198754;
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 1;
+    }
+
+    .carousel-control-prev{
+        left: 2%;
+    }
+
+    .carousel-control-next{
+        right: 2%;
+    }
+
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover{
+        background-color: #157347;
+    }
+
+    .carousel-indicators [data-bs-target]{
+        width: .65rem;
+        height: .65rem;
+        border-radius: 50%;
+        background-color: #198754;
+        opacity: .4;
+    }
+
+    .carousel-indicators .active{
+        opacity: 1;
+    }
+
   </style>
+
 </head>
+
 <body class="d-flex flex-column min-vh-100">
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg border-bottom sticky-top" style="background-color: rgba(11, 11, 12, 0.85); backdrop-filter: blur(10px); border-color: var(--border-dark) !important;">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center gap-2 text-white font-weight-bold" href="#">
-        <span class="rounded-circle d-inline-flex justify-content-center align-items-center text-white fw-bold" style="width:34px; height:34px; background-color: var(--brand-wood); font-size: 0.9rem;">
-            <img src="image.png" alt="REALEM Logo" style="width: 24px; height: 24px;">
-        </span>
-        <span class="fw-semibold">REALEM Doors</span>
-      </a>
+    
 
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
+  <!-- ==================== NAVBAR ==================== -->
+
+  <nav
+    class="navbar navbar-expand-lg border-bottom sticky-top"
+    style="
+      background-color: var(--navbar-bg);
+      backdrop-filter: blur(10px);
+      border-color: var(--border-dark) !important;
+    "
+  >
+    <div class="container">
+
+ 
+  <!-- Logo -->
+  <a
+    class="navbar-brand d-flex align-items-center gap-2 text-white fw-bold"
+    href="#"
+  >
+    <span
+      class="rounded-circle d-inline-flex justify-content-center align-items-center"
+      style="
+        width: 34px;
+        height: 34px;
+        background: none;
+        font-size: 0.9rem;
+      "
+    >
+      <img
+        src="3dlogo_nbg.png"
+        alt="CAPSU Logo"
+        style="
+          width: 24px;
+          height: 24px;
+          background: none !important;
+        "
+      >
+    </span>
+
+    <span class="fw-semibold">
+      CAPSU Student Portal
+    </span>
+  </a>
+
+  <!-- Mobile Navbar Button -->
+  <button
+    class="navbar-toggler border-0"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar Content -->
+  <div class="collapse navbar-collapse" id="navbarNav">
+
+    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
+
+      <li class="nav-item">
+        <a
+          class="nav-link text-secondary px-3"
+          href="#features"
+        >
+          Features
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link text-secondary px-3"
+          href="#screenshots"
+        >
+          Screenshots
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link text-secondary px-3"
+          href="#demo"
+        >
+          Demo
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link text-secondary px-3"
+          href="#specs"
+        >
+          Specifications
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link text-secondary px-3"
+          href="#"
+          data-bs-toggle="modal"
+          data-bs-target="#aboutModal"
+        >
+          About Student Portal
+        </a>
+      </li>
+
+    </ul>
+
+    <!-- Navbar Buttons -->
+    <div
+      class="text-center d-flex flex-column flex-sm-row justify-content-center gap-2"
+    >
+
+      <!-- Dark / Light Mode -->
+      <button
+        id="themeToggle"
+        type="button"
+        class="btn btn-outline-light btn-sm px-3 py-2 rounded-3 theme-toggle"
+      >
+        <i class="bi bi-sun-fill me-1"></i>
+        Light Mode
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
-          <li class="nav-item"><a class="nav-link text-secondary px-3" href="#features">Features</a></li>
-          <li class="nav-item"><a class="nav-link text-secondary px-3" href="#specs">Specifications</a></li>
-          <!-- Trigger Modal Link -->
-          <li class="nav-item">
-            <a class="nav-link text-secondary px-3" href="#" data-bs-toggle="modal" data-bs-target="#aboutModal">About RNP Trading</a>
-          </li>
-        </ul>
-        <div class="text-center d-flex flex-column flex-sm-row justify-content-center gap-2">
-          <!-- Facebook Button -->
-          <a href="https://www.facebook.com/realem.products" target="_blank" rel="noopener noreferrer" class="btn btn-facebook btn-sm px-3 py-2 rounded-3">
-            <i class="bi bi-facebook me-1"></i> Facebook
-          </a>
-          <!-- Get APK Button -->
-          <a href="#download" class="btn btn-outline-light btn-sm px-3 py-2 rounded-3">
-            <i class="bi bi-download me-1"></i> Get APK
-          </a>
-        </div>
-      </div>
+      <!-- Get APK -->
+      <button
+        type="button"
+        class="btn btn-outline-light btn-sm px-3 py-2 rounded-3"
+        data-bs-toggle="modal"
+        data-bs-target="#installGuideModal"
+      >
+        <i class="bi bi-download me-1"></i>
+        Get APK
+      </button>
+
     </div>
+
+  </div>
+</div>
+ 
+
   </nav>
 
-  <!-- Hero Section -->
-  <section class="py-5 border-bottom position-relative overflow-hidden" style="border-color: var(--border-dark) !important;">
+  <!-- ==================== HERO ==================== -->
+
+  <section
+    class="py-5 border-bottom position-relative overflow-hidden"
+    style="border-color: var(--border-dark) !important;"
+  >
     <div class="container py-lg-5">
-      <div class="row align-items-center gy-5">
-        
-        <!-- Text Column -->
-        <div class="col-lg-7 text-center text-lg-start">
-          <span class="badge badge-brand rounded-pill px-3 py-2 mb-3 text-uppercase font-monospace fs-7">
-            Android Exclusive App
-          </span>
 
-          <h1 class="display-4 fw-bold text-white mb-3">
-            Design & Customize Your Ideal Wooden Door
-          </h1>
+ 
+  <div class="row align-items-center gy-5">
 
-          <p class="lead text-secondary mb-4 col-lg-10">
-            Browse full product specifications, customize door dimensions, materials, colors, and surface finishes, and send direct inquiry requests via Messenger.
-          </p>
+    <!-- Text Column -->
+    <div class="col-lg-7 text-center text-lg-start">
 
-          <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start mb-4">
-            <a href="#download" class="btn btn-brand btn-lg px-4 py-3 rounded-3 fw-semibold">
-              <i class="bi bi-cloud-arrow-down-fill me-2"></i> Download Direct APK
-            </a>
-            <a href="https://www.facebook.com/realem.products" target="_blank" rel="noopener noreferrer" class="btn btn-facebook btn-lg px-4 py-3 rounded-3 fw-semibold">
-              <i class="bi bi-facebook me-2"></i> Visit Facebook Page
-            </a>
-          </div>
+      <span
+        class="badge badge-brand rounded-pill px-3 py-2 mb-3 text-uppercase font-monospace"
+      >
+        Android Exclusive App
+      </span>
 
-          <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-4 text-secondary small">
-            <div><i class="bi bi-check-circle-fill text-success me-1"></i> Direct Installation</div>
-            <div><i class="bi bi-shield-check text-warning me-1"></i> Safe APK</div>
-            <div><i class="bi bi-phone me-1"></i> Android OS</div>
-          </div>
+      <h1 class="display-4 fw-bold text-white mb-3">
+        CAPSU Student Portal
+      </h1>
+
+      <p class="lead text-secondary mb-4 col-lg-10">
+        Access your CAPSU student account, view grades, and manage
+        your academic profile with ease.
+      </p>
+
+      <div
+        class="d-flex flex-column flex-sm-row gap-3
+               justify-content-center justify-content-lg-start mb-4"
+      >
+
+      <button
+          type="button"
+          class="btn btn-brand btn-lg"
+          data-bs-toggle="modal"
+          data-bs-target="#installGuideModal"
+      >
+          <i class="bi bi-download me-2"></i>
+          Download APP
+      </button>
+
+        <a
+          href="#aboutModal"
+          data-bs-toggle="modal"
+          class="btn btn-outline-success btn-lg px-4 py-3 rounded-3 fw-semibold"
+        >
+          <i class="bi bi-info-circle me-2"></i>
+          About the App
+        </a>
+
+      </div>
+
+      <div
+        class="d-flex flex-wrap justify-content-center
+               justify-content-lg-start gap-4 text-secondary small"
+      >
+
+        <div>
+          <i class="bi bi-check-circle-fill text-success me-1"></i>
+          Direct Installation
         </div>
 
-        <!-- Phone Mockup Column -->
-        <div class="col-lg-5 text-center">
-          <div class="phone-mockup">
-            <div class="phone-notch"></div>
-            <div class="phone-screen">
-              <div class="my-auto">
-                <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; border-radius: 50%;">
-                   <img src="image.png"
-     alt="REALEM Logo"
-     class="img-fluid rounded-circle w-100"
-     style="aspect-ratio: 1 / 1; object-fit: cover;">
-                </div>
-                <h5 class="fw-bold text-white mb-1">REALEM Doors</h5>
-                <p class="text-secondary small mb-4">Explore, customize, and inquire about your ideal door.</p>
+        <div>
+          <i class="bi bi-shield-check text-warning me-1"></i>
+          Safe APK
+        </div>
 
-                <div class="btn btn-light text-dark w-100 fw-semibold btn-sm py-2 d-flex align-items-center justify-content-center gap-2">
-                  <i class="bi bi-google"></i> Continue with Google
-                </div>
-              </div>
-
-              <div class="text-secondary opacity-50" style="font-size: 0.7rem;">
-                Realem Native Products Trading
-              </div>
-            </div>
-          </div>
+        <div>
+          <i class="bi bi-phone me-1"></i>
+          Android OS
         </div>
 
       </div>
+
     </div>
+
+
+    <!-- Phone Mockup -->
+    <div class="col-lg-5 text-center">
+
+      <div class="phone-mockup">
+
+        <div class="phone-notch"></div>
+
+        <div class="phone-screen p-0 overflow-hidden">
+
+          <img
+            src="phone.jpg"
+            alt="CAPSU Student Portal Screenshot"
+            class="w-100 h-100"
+            style="object-fit: cover; border-radius: 25px;"
+          >
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+ 
+
   </section>
 
-  <!-- Key Features Grid -->
-  <section id="features" class="py-5 border-bottom" style="border-color: var(--border-dark) !important;">
+  <!-- ==================== FEATURES ==================== -->
+
+  <section
+    id="features"
+    class="py-5 border-bottom"
+    style="border-color: var(--border-dark) !important;"
+  >
     <div class="container py-lg-4">
-      <div class="text-center max-w-2xl mx-auto mb-5">
-        <h2 class="fw-bold text-white mb-2">Everything Built for Customization</h2>
-        <p class="text-secondary">Designed to streamline custom door choices for clients, designers, and builders.</p>
-      </div>
 
-      <div class="row g-4">
-        <!-- Feature 1 -->
-        <div class="col-md-4">
-          <div class="card card-dark h-100 p-4">
-            <div class="icon-box mb-3">
-              <i class="bi bi-grid-3x3-gap-fill fs-5"></i>
-            </div>
-            <h4 class="h5 text-white fw-bold mb-2">Door Catalog</h4>
-            <p class="text-secondary small mb-0">
-              Explore solid wood door styles, blueprint views, material information, and architectural hardware notes.
-            </p>
+ 
+  <!-- Section Header -->
+  <div
+    class="text-center mx-auto mb-4 mb-lg-5 px-2"
+    style="max-width: 720px;"
+  >
+
+    <h2 class="fw-bold text-white mb-2">
+      Student Services at Your Fingertips
+    </h2>
+
+    <p class="text-secondary mb-0">
+      Access essential student information and services through
+      the CAPSU Student Portal, anytime and wherever you need them.
+    </p>
+
+  </div>
+
+
+  <!-- Features -->
+  <div class="row g-3 g-md-4">
+
+    <!-- Student Information -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card card-dark h-100 p-3 p-md-4">
+
+        <div class="d-flex align-items-start gap-3">
+
+          <div class="icon-box flex-shrink-0">
+            <i class="bi bi-person-vcard-fill fs-5"></i>
           </div>
+
+          <div>
+
+            <h4 class="h5 text-white fw-bold mb-2">
+              Student Information
+            </h4>
+
+            <p class="text-secondary small mb-0">
+              View your personal profile, student details, and
+              academic information in one convenient place.
+            </p>
+
+          </div>
+
         </div>
 
-        <!-- Feature 2 -->
-        <div class="col-md-4">
-          <div class="card card-dark h-100 p-4">
-            <div class="icon-box mb-3">
-              <i class="bi bi-sliders fs-5"></i>
-            </div>
-            <h4 class="h5 text-white fw-bold mb-2">Detailed Customization</h4>
-            <p class="text-secondary small mb-0">
-              Customize standard dimensions (Width, Height, Thickness), wood finish options, shades, and quantities.
-            </p>
-          </div>
-        </div>
-
-        <!-- Feature 3 -->
-        <div class="col-md-4">
-          <div class="card card-dark h-100 p-4">
-            <div class="icon-box mb-3">
-              <i class="bi bi-chat-dots-fill fs-5"></i>
-            </div>
-            <h4 class="h5 text-white fw-bold mb-2">Direct Inquiries</h4>
-            <p class="text-secondary small mb-0">
-              Save your designs directly and send requests instantly via Messenger to RNP Trading for real-time pricing.
-            </p>
-          </div>
-        </div>
       </div>
     </div>
+
+
+    <!-- Grades -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card card-dark h-100 p-3 p-md-4">
+
+        <div class="d-flex align-items-start gap-3">
+
+          <div class="icon-box flex-shrink-0">
+            <i class="bi bi-bar-chart-fill fs-5"></i>
+          </div>
+
+          <div>
+
+            <h4 class="h5 text-white fw-bold mb-2">
+              Grades
+            </h4>
+
+            <p class="text-secondary small mb-0">
+              Access your grades and review your academic
+              performance anytime through the portal.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Enrollment -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card card-dark h-100 p-3 p-md-4">
+
+        <div class="d-flex align-items-start gap-3">
+
+          <div class="icon-box flex-shrink-0">
+            <i class="bi bi-journal-check fs-5"></i>
+          </div>
+
+          <div>
+
+            <h4 class="h5 text-white fw-bold mb-2">
+              Enrollment
+            </h4>
+
+            <p class="text-secondary small mb-0">
+              Monitor your enrollment status and access
+              important enrollment-related information.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Payments -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card card-dark h-100 p-3 p-md-4">
+
+        <div class="d-flex align-items-start gap-3">
+
+          <div class="icon-box flex-shrink-0">
+            <i class="bi bi-receipt fs-5"></i>
+          </div>
+
+          <div>
+
+            <h4 class="h5 text-white fw-bold mb-2">
+              Payments
+            </h4>
+
+            <p class="text-secondary small mb-0">
+              Review your payment records and keep track of
+              your recorded student transactions.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Forms & Documents -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card card-dark h-100 p-3 p-md-4">
+
+        <div class="d-flex align-items-start gap-3">
+
+          <div class="icon-box flex-shrink-0">
+            <i class="bi bi-file-earmark-text-fill fs-5"></i>
+          </div>
+
+          <div>
+
+            <h4 class="h5 text-white fw-bold mb-2">
+              Forms & Documents
+            </h4>
+
+            <p class="text-secondary small mb-0">
+              Download commonly requested student forms and
+              documents directly through the portal.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Faculty Evaluation -->
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card card-dark h-100 p-3 p-md-4">
+
+        <div class="d-flex align-items-start gap-3">
+
+          <div class="icon-box flex-shrink-0">
+            <i class="bi bi-person-check-fill fs-5"></i>
+          </div>
+
+          <div>
+
+            <h4 class="h5 text-white fw-bold mb-2">
+              Faculty Evaluation
+            </h4>
+
+            <p class="text-secondary small mb-0">
+              Evaluate your instructors online and provide
+              feedback through the faculty evaluation service.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+ 
+
   </section>
 
-  <!-- Specifications Card Section -->
-  <section id="specs" class="py-5 border-bottom" style="border-color: var(--border-dark) !important; background-color: rgba(20, 20, 22, 0.4);">
+
+
+
+
+<!----------------------   SCREENSHOTS      ---------------------------------->
+
+<!-- ==================== SCREENSHOTS ==================== -->
+<section id="screenshots" class="py-5 border-bottom">
     <div class="container py-lg-4">
-      <div class="card card-dark p-4 p-md-5">
-        <div class="row align-items-center g-4">
-          <div class="col-md-7">
-            <div class="text-uppercase font-monospace small mb-2" style="color: #d19a7e;">Engineering & Specs</div>
-            <h3 class="fw-bold text-white mb-3">Precise Dimension Specs Included</h3>
-            <p class="text-secondary mb-4">
-              Access visual schematics directly in-app. Review technical door measurements before sending inquiry requests.
-            </p>
-            <div class="d-flex flex-column gap-2 text-secondary small">
-              <div><i class="bi bi-check2 text-warning me-2"></i> Standard Widths: 900 mm | Height: 2100 mm | Thickness: 40 mm</div>
-              <div><i class="bi bi-check2 text-warning me-2"></i> Natural wood stain options and custom finishes</div>
-              <div><i class="bi bi-check2 text-warning me-2"></i> Solid wood durability with classic hardware detailing</div>
-            </div>
-          </div>
 
-          <div class="col-md-5">
-            <div class="bg-black border border-secondary border-opacity-25 rounded-3 p-3 font-monospace small">
-              <div class="d-flex justify-content-between border-bottom border-secondary border-opacity-25 pb-2 mb-2 text-secondary" style="font-size: 0.75rem;">
-                <span>SPEC_DATA_PREVIEW</span>
-                <span class="text-warning">REALEM APP</span>
-              </div>
-              <div class="text-light mb-1"><span class="text-secondary">Model:</span> 4-Panel Wood Door</div>
-              <div class="text-light mb-1"><span class="text-secondary">Material:</span> Solid Wood</div>
-              <div class="text-light mb-1"><span class="text-secondary">Finish:</span> Natural Wood Finish</div>
-              <div class="text-light"><span class="text-secondary">Thickness:</span> 40 mm</div>
-            </div>
-          </div>
+        <div class="text-center mx-auto mb-5" style="max-width: 720px;">
+            <h2 class="fw-bold mb-2">App Screenshots</h2>
+            <p class="text-secondary mb-0">
+                Explore the interface and different sections of the CAPSU Student Portal mobile application.
+            </p>
         </div>
+
+        <div id="screenshotsCarousel" class="carousel slide" data-bs-touch="true">
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <div class="row g-3 g-lg-4 justify-content-center">
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <img src="./snapshots/1.png" class="img-fluid w-100 rounded" alt="CAPSU Student Portal Screenshot 1">
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <img src="./snapshots/2.png" class="img-fluid w-100 rounded" alt="CAPSU Student Portal Screenshot 2">
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <img src="./snapshots/3.png" class="img-fluid w-100 rounded" alt="CAPSU Student Portal Screenshot 3">
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <img src="./snapshots/4.png" class="img-fluid w-100 rounded" alt="CAPSU Student Portal Screenshot 4">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="row g-3 g-lg-4 justify-content-center">
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <img src="./snapshots/5.png" class="img-fluid w-100 rounded" alt="CAPSU Student Portal Screenshot 5">
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <img src="./snapshots/6.png" class="img-fluid w-100 rounded" alt="CAPSU Student Portal Screenshot 6">
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <img src="./snapshots/7.png" class="img-fluid w-100 rounded" alt="CAPSU Student Portal Screenshot 7">
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <img src="./snapshots/8.png" class="img-fluid w-100 rounded" alt="CAPSU Student Portal Screenshot 8">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="row g-3 g-lg-4 justify-content-center">
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <img src="./snapshots/9.png" class="img-fluid w-100 rounded" alt="CAPSU Student Portal Screenshot 9">
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <img src="./snapshots/10.png" class="img-fluid w-100 rounded" alt="CAPSU Student Portal Screenshot 10">
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <img src="./snapshots/11.png" class="img-fluid w-100 rounded" alt="CAPSU Student Portal Screenshot 11">
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <img src="./snapshots/12.png" class="img-fluid w-100 rounded" alt="CAPSU Student Portal Screenshot 12">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#screenshotsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#screenshotsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+            <div class="carousel-indicators position-relative mt-3 mb-0">
+                <button type="button" data-bs-target="#screenshotsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Screenshots 1 to 4"></button>
+                <button type="button" data-bs-target="#screenshotsCarousel" data-bs-slide-to="1" aria-label="Screenshots 5 to 8"></button>
+                <button type="button" data-bs-target="#screenshotsCarousel" data-bs-slide-to="2" aria-label="Screenshots 9 to 12"></button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+  <!-- ==================== DEMO VIDEO ==================== -->
+<section
+  id="demo"
+  class="py-5 border-bottom"
+  style="border-color: var(--border-dark) !important;"
+>
+  <div class="container py-lg-4">
+
+    <!-- Section Header -->
+    <div
+      class="text-center mx-auto mb-4 mb-lg-5 px-2"
+      style="max-width: 720px;"
+    >
+      <h2 class="fw-bold text-white mb-2">
+        App Demo
+      </h2>
+
+      <p class="text-secondary mb-0">
+        Watch a demonstration of the CAPSU Student Portal and
+        see how its main features work.
+      </p>
+    </div>
+
+    <!-- YouTube Video -->
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-9">
+
+        <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow">
+
+          <iframe
+            src="https://www.youtube.com/embed/IzWFd1C7qEQ"
+            title="CAPSU Student Portal Demo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+
+        </div>
+
       </div>
     </div>
+
+  </div>
+</section>
+
+  <!-- ==================== SPECIFICATIONS ==================== -->
+
+  <section
+    id="specs"
+    class="py-5 border-bottom"
+    style="
+      border-color: var(--border-dark) !important;
+      background-color: var(--spec-bg);
+    "
+  >
+    <div class="container py-lg-4">
+
+ 
+  <div class="card card-dark p-4 p-md-5">
+
+    <div class="row align-items-center g-4">
+
+      <!-- Information -->
+      <div class="col-md-7">
+
+        <div
+          class="text-uppercase font-monospace small mb-2"
+          style="color: var(--brand-wood);"
+        >
+          Application & Features
+        </div>
+
+        <h3 class="fw-bold text-white mb-3">
+          CAPSU Student Portal
+        </h3>
+
+        <p class="text-secondary mb-4">
+          Access essential student information and services
+          through a mobile-friendly Android application.
+        </p>
+
+        <div class="d-flex flex-column gap-2 text-secondary small">
+
+          <div>
+            <i class="bi bi-check2 text-success me-2"></i>
+            Student account access
+          </div>
+
+          <div>
+            <i class="bi bi-check2 text-success me-2"></i>
+            Academic information and grades
+          </div>
+
+          <div>
+            <i class="bi bi-check2 text-success me-2"></i>
+            Student schedule and announcements
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Specification Preview -->
+      <div class="col-md-5">
+
+        <div
+          class="spec-preview border border-secondary border-opacity-25
+                 rounded-3 p-3 font-monospace small"
+        >
+
+          <div
+            class="d-flex justify-content-between
+                   border-bottom border-secondary border-opacity-25
+                   pb-2 mb-2 text-secondary"
+            style="font-size: 0.75rem;"
+          >
+
+            <span>
+              APP_INFO
+            </span>
+
+            <span style="color: var(--brand-wood);">
+              CAPSU PORTAL
+            </span>
+
+          </div>
+
+          <div class="text-body mb-1">
+            <span class="text-secondary">
+              Platform:
+            </span>
+            Android
+          </div>
+
+          <div class="text-body mb-1">
+            <span class="text-secondary">
+              Application:
+            </span>
+            Student Portal
+          </div>
+
+          <div class="text-body mb-1">
+            <span class="text-secondary">
+              Access:
+            </span>
+            Student Account
+          </div>
+
+          <div class="text-body">
+            <span class="text-secondary">
+              Version:
+            </span>
+            2026
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+ 
+
   </section>
 
-  <!-- Download & Contact CTA Section -->
+  <!-- ==================== DOWNLOAD ==================== -->
+
   <section id="download" class="py-5 text-center">
-    <div class="container py-lg-4">
-      <div class="max-w-xl mx-auto">
-        <h2 class="fw-bold text-white mb-3">Ready to design your custom door?</h2>
-        <p class="text-secondary mb-4">Get the official REALEM Doors APK to start browsing designs, or connect with us on Facebook.</p>
-        
-        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
-          <a href="#" class="btn btn-brand btn-lg px-4 py-3 rounded-3 fw-semibold">
-            <i class="bi bi-download me-2"></i> Download APK File
-          </a>
-          <!-- <a href="https://www.facebook.com/realem.products" target="_blank" rel="noopener noreferrer" class="btn btn-facebook btn-lg px-4 py-3 rounded-3 fw-semibold">
-            <i class="bi bi-facebook me-2"></i> Visit Facebook Page
-          </a> -->
-        </div>
-      </div>
+
+ 
+<div class="container py-lg-4">
+
+  <div class="mx-auto" style="max-width: 700px;">
+
+    <h2 class="fw-bold text-white mb-3">
+      Ready to access your student portal?
+    </h2>
+
+    <p class="text-secondary mb-4">
+      Download the CAPSU Student Portal APK and access
+      your student information directly from your Android device.
+    </p>
+
+    <div class="d-flex justify-content-center">
+
+      <button
+          type="button"
+          class="btn btn-brand btn-lg"
+          data-bs-toggle="modal"
+          data-bs-target="#installGuideModal"
+      >
+          <i class="bi bi-download me-2"></i>
+          Download APK File
+      </button>
+
     </div>
+
+  </div>
+
+</div>
+ 
+
   </section>
 
-  <!-- About RNP Trading Modal -->
-  <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content card-dark border border-secondary border-opacity-25">
-        
-        <!-- Modal Header -->
-        <div class="modal-header border-bottom border-secondary border-opacity-25 pb-3">
-          <div class="d-flex align-items-center gap-3">
-            <div class="icon-box">
-              <i class="bi bi-building fs-5"></i>
-            </div>
-            <div>
-              <h5 class="modal-title fw-bold text-white" id="aboutModalLabel">About RNP Trading</h5>
-              <span class="text-secondary small">Realem Native Products Trading • Since 2000</span>
-            </div>
-          </div>
+  <!-- ==================== INSTALL GUIDE MODAL ==================== -->
+  <div class="modal fade" id="installGuideModal" tabindex="-1" aria-labelledby="installGuideModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content rounded-4 border-0">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title" id="installGuideModalLabel">
+            <i class="bi bi-download me-2"></i>
+            Install CAPSU Student Portal
+          </h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
-        <!-- Modal Body -->
-        <div class="modal-body py-4 space-y-3">
-          <p class="text-secondary">
-            <strong class="text-white">Realem Native Products Trading (RNP Trading)</strong> 
-            was established in 2000 by spouses Lorna and Ramonito Diergos with an initial capital of ₱3,000. The business started by producing small, made-to-order furniture such as doors and cabinets, with family members later joining to help meet growing customer demand from churches, schools, and households.
+        <div class="modal-body">
+          <div class="alert alert-warning">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            <strong>Important</strong><br>
+            The CAPSU Student Portal is currently distributed as an APK while awaiting publication on the Google Play Store. During installation, Android may display a security warning because the application was downloaded outside Google Play.
+          </div>
 
-Today, the business is managed by Engr. Lemuel E. Diergos and specializes in locally crafted furniture, particularly products made from Madre de Cacao wood. REALEM continues to combine traditional craftsmanship, quality materials, and innovative designs to create durable and distinctive furniture.
-          </p>
+          <h5 class="text-success mb-3">Installation Steps</h5>
 
-          <div class="row g-3 my-2">
-            <div class="col-md-6">
-              <div class="p-3 rounded-3 border border-secondary border-opacity-25" style="background-color: #0f0f10;">
-                <div class="d-flex align-items-center gap-2 text-white fw-bold mb-1">
-                  <i class="bi bi-award text-warning"></i> Quality Craftsmanship
-                </div>
-                <p class="text-secondary small mb-0">Every door is engineered from premium solid wood materials, finished with precision, and structured for timeless aesthetics.</p>
-              </div>
-            </div>
+          <div class="mb-4">
+            <h6 class="fw-bold"><span class="badge bg-success me-2">1</span>Download the APK</h6>
+            <p class="text-muted mb-0">Tap the <strong>Download APK</strong> button below and wait for the download to finish.</p>
+          </div>
 
-            <div class="col-md-6">
-              <div class="p-3 rounded-3 border border-secondary border-opacity-25" style="background-color: #0f0f10;">
-                <div class="d-flex align-items-center gap-2 text-white fw-bold mb-1">
-                  <i class="bi bi-phone text-info"></i> Modern Digital Ordering
-                </div>
-                <p class="text-secondary small mb-0">Through the <strong class="text-white">REALEM Doors</strong> app, clients can view technical blueprints, customize specs, and get instant price quotes.</p>
-              </div>
+          <div class="mb-4">
+            <h6 class="fw-bold"><span class="badge bg-success me-2">2</span>Open the APK</h6>
+            <p class="text-muted">Open the downloaded APK from your browser or Downloads folder.</p>
+            <div class="alert alert-light border">
+              Android may display one of the following messages:
+              <ul class="mt-2 mb-0">
+                <li><strong>For your security, your phone is not allowed to install unknown apps from this source.</strong></li>
+                <li><strong>Blocked by Play Protect.</strong></li>
+              </ul>
             </div>
           </div>
 
-          <div class="pt-2">
-            <h6 class="text-white fw-bold mb-2"><i class="bi bi-geo-alt me-1 text-danger"></i> Contact & Business Inquiries</h6>
-            <ul class="list-unstyled text-secondary small mb-0">
-              <li class="mb-1"><i class="bi bi-envelope me-2"></i> Direct Inquiries via Messenger or Official Facebook Page</li>
-              <li class="mb-1"><i class="bi bi-box-seam me-2"></i> Custom Solid Wood Doors, Panels, and Native Products</li>
-            </ul>
+          <div class="mb-4">
+            <h6 class="fw-bold"><span class="badge bg-success me-2">3</span>Allow Installation</h6>
+            <p class="text-muted mb-2">If Android blocks the installation:</p>
+            <ol>
+              <li>Tap <strong>Settings</strong>.</li>
+              <li>Enable <strong>Allow from this source</strong> or <strong>Allow app installs</strong>.</li>
+              <li>Return to the installer.</li>
+            </ol>
+            <p class="text-muted mb-2">If Google Play Protect appears:</p>
+            <ol>
+              <li>Tap <strong>More details</strong> (if available).</li>
+              <li>Select <strong>Install anyway</strong>.</li>
+            </ol>
+          </div>
+
+          <div class="mb-4">
+            <h6 class="fw-bold"><span class="badge bg-success me-2">4</span>Install</h6>
+            <ol class="mb-0">
+              <li>Tap <strong>Install</strong>.</li>
+              <li>Wait until installation completes.</li>
+              <li>Tap <strong>Open</strong>.</li>
+            </ol>
+          </div>
+
+          <div class="mb-4">
+            <h6 class="fw-bold"><span class="badge bg-success me-2">5</span>Sign In</h6>
+            <p class="text-muted mb-0">Log in using your official CAPSU student account to access university services.</p>
+          </div>
+
+          <hr>
+
+          <div class="text-center">
+            <a href="./docs/capsu-iis-student-portalV1.1.1.apk" class="btn btn-success btn-lg">
+              <i class="bi bi-download me-2"></i>
+              Download APK
+            </a>
+          </div>
+
+          <div class="mt-4">
+            <h5 class="text-success">Frequently Asked Questions</h5>
+
+            <p class="mb-2">
+              <strong>Why does Android warn that the app may be harmful?</strong><br>
+              Android automatically warns users when installing applications outside Google Play. This is expected and does not necessarily indicate that the application is unsafe.
+            </p>
+
+            <p class="mb-2">
+              <strong>Is the app available on Google Play?</strong><br>
+              Not yet. The application is currently undergoing the publication process.
+            </p>
+
+            <p class="mb-0">
+              <strong>Need assistance?</strong><br>
+              For technical concerns, please contact the Capiz State University Information and Communication Technology Office through the University's official communication channels.
+            </p>
           </div>
         </div>
-
-        <!-- Modal Footer -->
-        <div class="modal-footer border-top border-secondary border-opacity-25 pt-3">
-          <a href="https://www.facebook.com/realem.products" target="_blank" rel="noopener noreferrer" class="btn btn-facebook btn-sm px-3">
-            <i class="bi bi-facebook me-1"></i> Contact on Facebook
-          </a>
-          <button type="button" class="btn btn-secondary btn-sm px-4" data-bs-dismiss="modal">Close</button>
-        </div>
-
       </div>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="mt-auto py-4 border-top text-secondary small" style="border-color: var(--border-dark) !important;">
-    <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-3">
-      <div class="d-flex align-items-center gap-2">
-        <i class="bi bi-building"></i>
-        <!-- Clickable modal trigger in footer as well -->
-        <a href="#" class="text-secondary text-decoration-none" data-bs-toggle="modal" data-bs-target="#aboutModal">
-          Realem Native Products Trading
-        </a>
-      </div>
-      <div class="d-flex align-items-center gap-3">
-        <a href="https://www.facebook.com/realem.products" target="_blank" rel="noopener noreferrer" class="text-secondary text-decoration-none">
-          <i class="bi bi-facebook fs-6 me-1"></i> Follow on Facebook
-        </a>
-        <span>|</span>
-        <span>© 2026 REALEM Doors</span>
-      </div>
-    </div>
-  </footer>
+  <!-- ==================== ABOUT MODAL ==================== -->
 
-  <!-- Bootstrap 5 JS Bundle -->
+  <div
+    class="modal fade"
+    id="aboutModal"
+    tabindex="-1"
+    aria-labelledby="aboutModalLabel"
+    aria-hidden="true"
+  >
+
+ 
+<div class="modal-dialog modal-dialog-centered modal-lg">
+
+  <div class="modal-content card-dark">
+
+    <!-- Modal Header -->
+    <div
+      class="modal-header border-bottom border-secondary
+             border-opacity-25 pb-3"
+    >
+
+      <div class="d-flex align-items-center gap-3">
+
+        <div class="icon-box">
+          <i class="bi bi-building fs-5"></i>
+        </div>
+
+        <div>
+
+          <h5
+            class="modal-title fw-bold text-white"
+            id="aboutModalLabel"
+          >
+            About CAPSU Student Portal
+          </h5>
+
+          <span class="text-secondary small">
+            Capiz State University
+          </span>
+
+        </div>
+
+      </div>
+
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+
+    </div>
+
+
+    <!-- Modal Body -->
+    <div class="modal-body py-4">
+
+      <p class="text-secondary">
+        The CAPSU Student Portal is an Android application
+        designed to provide students with convenient access
+        to student-related information and services.
+      </p>
+
+
+      <div class="row g-3 my-2">
+
+        <!-- Student Services -->
+        <div class="col-md-6">
+
+          <div
+            class="p-3 rounded-3 border border-secondary
+                   border-opacity-25"
+            style="background-color: var(--surface-dark);"
+          >
+
+            <div
+              class="d-flex align-items-center gap-2
+                     text-white fw-bold mb-1"
+            >
+
+              <i
+                class="bi bi-mortarboard-fill"
+                style="color: var(--brand-wood);"
+              ></i>
+
+              Student Services
+
+            </div>
+
+            <p class="text-secondary small mb-0">
+              Provides convenient access to academic information,
+              schedules, grades, announcements, and other
+              student-related services.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- Mobile Application -->
+        <div class="col-md-6">
+
+          <div
+            class="p-3 rounded-3 border border-secondary
+                   border-opacity-25"
+            style="background-color: var(--surface-dark);"
+          >
+
+            <div
+              class="d-flex align-items-center gap-2
+                     text-white fw-bold mb-1"
+            >
+
+              <i
+                class="bi bi-phone"
+                style="color: var(--brand-wood);"
+              ></i>
+
+              Mobile Application
+
+            </div>
+
+            <p class="text-secondary small mb-0">
+              Built for Android devices to provide students
+              with convenient mobile access to portal features.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Application Information -->
+      <div class="pt-2">
+
+        <h6 class="text-white fw-bold mb-2">
+
+          <i
+            class="bi bi-info-circle me-1"
+            style="color: var(--brand-wood);"
+          ></i>
+
+          Application Information
+
+        </h6>
+
+        <ul class="list-unstyled text-secondary small mb-0">
+
+          <li class="mb-1">
+            <i class="bi bi-check-circle me-2 text-success"></i>
+            Android application
+          </li>
+
+          <li class="mb-1">
+            <i class="bi bi-check-circle me-2 text-success"></i>
+            CAPSU student account access
+          </li>
+
+          <li class="mb-1">
+            <i class="bi bi-check-circle me-2 text-success"></i>
+            Academic and student information
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+
+    <!-- Modal Footer -->
+    <div
+      class="modal-footer border-top border-secondary
+             border-opacity-25 pt-3"
+    >
+
+      <button
+        type="button"
+        class="btn btn-secondary btn-sm px-4"
+        data-bs-dismiss="modal"
+      >
+        Close
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+ 
+
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+
+<footer class="bg-success text-white py-5">
+    <div class="container text-center">
+
+        <img src="3dlogo_nbg.png"
+             alt="CAPSU Student Portal"
+             width="64"
+             class="mb-3">
+
+        <h4 class="fw-bold mb-2 text-white">CAPSU Student Portal</h4>
+
+        <p class="mb-4 opacity-75">
+            Official mobile application for Capiz State University students.
+        </p>
+
+        <div class="d-flex justify-content-center flex-wrap gap-3 mb-4">
+
+            <a href="https://www.capsu.edu.ph/"
+               target="_blank"
+               class="text-white text-decoration-none">
+                <i class="bi bi-globe2 me-1"></i>
+                Official Website
+            </a>
+
+            <span class="text-white-50">|</span>
+
+            <a href="./privacy-policy/privacy.html"
+               class="text-white text-decoration-none">
+                <i class="bi bi-shield-lock me-1"></i>
+                Privacy Policy
+            </a>
+
+        </div>
+
+        <small class="d-block opacity-75">
+            Version <span class="version-class">1.0.9</span>
+        </small>
+
+        <small class="d-block opacity-75">
+            © 2026 - 2027 Capiz State University <br>
+            Made with <i class="bi bi-heart-fill text-danger"></i> by
+            <span class="text-white fw-semibold">CAPSU - Digital Transformation Office</span>
+        </small>
+
+    </div>
+</footer>
+
+  <!-- ==================== BOOTSTRAP JS ==================== -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ==================== DARK / LIGHT MODE ==================== -->
+
+  <script>
+
+    const html = document.documentElement;
+    const themeToggle = document.getElementById("themeToggle");
+
+
+    function updateThemeButton() {
+
+      const currentTheme = html.getAttribute("data-bs-theme");
+
+      if (currentTheme === "dark") {
+
+        themeToggle.innerHTML =
+          '<i class="bi bi-sun-fill me-1"></i> Light Mode';
+
+        themeToggle.classList.remove("btn-outline-dark");
+        themeToggle.classList.add("btn-outline-light");
+
+      } else {
+
+        themeToggle.innerHTML =
+          '<i class="bi bi-moon-fill me-1"></i> Dark Mode';
+
+        themeToggle.classList.remove("btn-outline-light");
+        themeToggle.classList.add("btn-outline-dark");
+
+      }
+
+    }
+
+
+    /* Load saved theme */
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "light" || savedTheme === "dark") {
+      html.setAttribute("data-bs-theme", savedTheme);
+    }
+
+
+    /* Update button on page load */
+    updateThemeButton();
+
+
+    /* Toggle theme */
+    themeToggle.addEventListener("click", function () {
+
+      const currentTheme =
+        html.getAttribute("data-bs-theme");
+
+      const newTheme =
+        currentTheme === "dark"
+          ? "light"
+          : "dark";
+
+      html.setAttribute("data-bs-theme", newTheme);
+
+      localStorage.setItem("theme", newTheme);
+
+      updateThemeButton();
+
+    });
+
+  </script>
+
 </body>
+
 </html>
