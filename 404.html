@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+        // 1. Define your short link mappings here
+        const linkMap = {
+            "apk": "https://github.io",
+            "fb": "https://facebook.com",
+            "support": "https://capsu.edu.ph"
+        };
+
+        // 2. Get the full pathname (e.g., "/student_portal/apk")
+        let path = window.location.pathname;
+
+        // 3. Strip the "/student_portal/" prefix and extra slashes
+        const repoPrefix = "/student_portal";
+        if (path.startsWith(repoPrefix)) {
+            path = path.substring(repoPrefix.length);
+        }
+        
+        // Remove leading/trailing slashes and ignore query strings
+        const slug = path.replace(/^\/|\/$/g, '').split('?')[0];
+
+        // 4. Match the slug and redirect
+        if (linkMap[slug]) {
+            window.location.replace(linkMap[slug]);
+        } else {
+            // Fallback if the short link doesn't exist
+            document.write('<h1>Link not found</h1><p>Returning to portal home...</p>');
+            setTimeout(() => {
+                window.location.replace("/student_portal/");
+            }, 3000);
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
